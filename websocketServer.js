@@ -1,7 +1,9 @@
 const WebSocket = require("ws");
+
 // start the server and specify the port number
 const port = 8080;
 const wss = new WebSocket.Server({ port: port });
+
 console.log(`[WebSocket] Starting WebSocket server on localhost:${port}`);
 
 wss.on("connection", (ws, request) => {

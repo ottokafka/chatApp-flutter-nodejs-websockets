@@ -14,7 +14,7 @@ class _MyAppState extends State<MyApp> {
   // Localhost for android - 10.0.2.2
   // Localhost for iOS - 127.0.0.1
   final IOWebSocketChannel channel =
-      IOWebSocketChannel.connect('ws://150.136.56.131:5000');
+      IOWebSocketChannel.connect('ws://127.0.0.1:8080');
 
   var userInput;
   List messages = [];
@@ -39,7 +39,9 @@ class _MyAppState extends State<MyApp> {
                   return ListView.builder(
                       itemCount: messages.length,
                       itemBuilder: (context, index) {
-                        return Text('${messages[index]}');
+                        return Text(messages[index] == null
+                            ? ""
+                            : '${messages[index]}');
                       });
                 } else {
                   return Center(
